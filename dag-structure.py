@@ -15,7 +15,7 @@ DAG Skeleton
 
 from datetime import datetime, timedelta
 from airflow.decorators import dag
-from airflow.operations.empty import EmptyOperators
+from airflow.operations.empty import EmptyOperator
 
 
 # TODO Default arguments
