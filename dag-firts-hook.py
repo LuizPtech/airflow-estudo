@@ -21,7 +21,7 @@ from airflow.decorators import task
 
 # TODO Connections & Variables
 
-mongodb_atlas_conn_id = 'mongodb_default'
+mongodb_atlas_conn_id = 'MongoConnection'
 
 # TODO Default arguments
 default_args = {
