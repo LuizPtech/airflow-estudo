@@ -33,7 +33,7 @@ default_args = {
 # TODO DAG definition
 
 @dag(
-    dag_id= 'dag-structure',
+    dag_id= 'dag-structure-hook-mongodb',
     start_date= datetime(2024,9,30),
     max_active_runs=1,
     schedule_interval= timedelta(days=1),
