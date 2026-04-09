@@ -41,8 +41,8 @@ def init():
     # TODO task declaration
 
 
-    start = EmptyOperators(task_id='start')
-    end = EmptyOperators(task_id='end')
+    start = EmptyOperator(task_id='start')
+    end = EmptyOperator(task_id='end')
 
     # TODO task dependences
 
