@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 from airflow.decorators import dag
 from airflow.operators.empty import EmptyOperator
 from airflow.providers.mongo.hooks.mongo import MongoHook
-from airflow.sdk.definitions.decorators import task
+from airflow.decorators import task
 
 # TODO Connections & Variables
 
