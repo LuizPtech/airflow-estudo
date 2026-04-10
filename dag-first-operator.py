@@ -23,7 +23,7 @@ GCS_CONN_ID = 'gcp-bucket'
 SOURCE_BUCKET = 'estudo-airflow-teste'
 DESTINATION_BUCKET = 'estudo-airflow-teste'
 USERS_SOURCE_OBJECT = "pasta1/airbnb/listings/*.parquet"
-USERS_DESTINATION_OBJECT = "pasta2"
+USERS_DESTINATION_OBJECT = "pasta2/airbnb-backup/listings/"
 
 
 
