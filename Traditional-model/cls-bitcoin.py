@@ -14,9 +14,9 @@ def extract_bitcoin():
 
 # TODO process
 def process_bitcoin(ti):
-    response = ti.xcom_pull(task_ids="extract_bitcoin_price")
+    response = ti.xcom_pull(task_ids="extract_bitcoin")  # ← Corrigido
     logging.info(response)
-    processed_data = {"BTCUSD": response["price"]} # Eu passo a chave do JSON e oque é para puxar, nesse caso seria o preço
+    processed_data = {"BTCUSD": response["price"]}
     ti.xcom_push(key="processed_data", value=processed_data)
 
 
