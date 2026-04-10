@@ -1,8 +1,9 @@
 import requests
 import logging
 from datetime import datetime
+
 from airflow  import DAG
-from airflow.providers.standard.operators.python import PythonOperator
+from airflow.operators.python import PythonOperator
 
 """
 # Exemplo com Mercado Bitcoin para BTC
