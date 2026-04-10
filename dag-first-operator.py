@@ -20,10 +20,11 @@ from airflow.providers.google.cloud.transfers.gcs_to_gcs import GCSToGCSOperator
 # TODO Connections & Variables
 
 GCS_CONN_ID = 'gcp-bucket'
-SOURCE_BUCKET = 'pasta1'
-DESTINATION_BUCKET = 'pasta2'
-USERS_SOURCE_OBJECT = "mongodb-atlas/airbnb/*.parquet"
-USERS_DESTINATION_OBJECT = "mongodb-atlas/airbnb/users/*.parquet"
+SOURCE_BUCKET = 'estudo-airflow-teste'
+DESTINATION_BUCKET = 'estudo-airflow-teste'
+USERS_SOURCE_OBJECT = "pasta1/airbnb/listings/*.parquet"
+USERS_DESTINATION_OBJECT = "pasta2"
+
 
 
 # TODO Default arguments
@@ -53,9 +54,20 @@ def init():
     start = EmptyOperator(task_id='start')
     end = EmptyOperator(task_id='end')
 
+    copy_parquet_aibnb_to_gcs = GCSToGCSOperator(
+        task_id='copy_parquet_aibnb_to_gcs',
+        source_bucket=SOURCE_BUCKET,
+        source_object=USERS_SOURCE_OBJECT,
+        destination_bucket=DESTINATION_BUCKET,
+        destination_object=USERS_DESTINATION_OBJECT,
+        move_object=False,
+        gcp_conn_id=GCS_CONN_ID,
+    )
+
+
     # TODO task dependences
 
-    start >> end
+    start >> copy_parquet_aibnb_to_gcs >> end
 
     # TODO DAG Instantiation
 
