@@ -10,7 +10,7 @@ API = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
 
 # TODO extract
 def extract_bitcoin():
-    return requests.get(API).json()["BTCUSD"]
+    return requests.get(API).json()
 
 # TODO process
 def process_bitcoin(ti):
