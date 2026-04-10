@@ -5,20 +5,12 @@ from datetime import datetime
 from airflow  import DAG
 from airflow.operators.python import PythonOperator
 
-"""
-# Exemplo com Mercado Bitcoin para BTC
-url = "https://www.mercadobitcoin.net/api/BTC/ticker/"
-response = requests.get(url)
-data = response.json()
-
-print(f"Preço atual do BTC: {data['ticker']['last']}")
-"""
 
 API = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
 
 # TODO extract
 def extract_bitcoin():
-    return requests.get(API).json()["bitcoin"]
+    return requests.get(API).json()["BTCUSD"]
 
 # TODO process
 def process_bitcoin(ti):
