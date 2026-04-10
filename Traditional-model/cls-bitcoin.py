@@ -22,8 +22,8 @@ def process_bitcoin(ti):
 
 # TODO store
 def store_bitcoin(ti):
-    date = ti.xcom_pull(task_ids="process_bitcoin", key="processed_data" )
-    logging.info(date)
+    data = ti.xcom_pull(task_ids="process_bitcoin", key="processed_data" )
+    logging.info(data)
 
 with DAG (
     dag_id = "cls-bitcoin",
@@ -34,17 +34,17 @@ with DAG (
 ):
     # TODO Task 1
     extract_bitcoin_from_api = PythonOperator(
-        task_id = "extract_bitcoin_from_api",
+        task_id = "extract_bitcoin",
         python_callable=extract_bitcoin
     )
     # TODO Task 2
     process_bitcoin_from_api = PythonOperator(
-        task_id = "process_bitcoin_from_api",
+        task_id = "process_bitcoin",
         python_callable=process_bitcoin
     )
     # TODO Task 3
     store_bitcoin_in_database = PythonOperator(
-        task_id = "store_bitcoin_in_database",
+        task_id = "store_bitcoin",
         python_callable=store_bitcoin
     )
 
