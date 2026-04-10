@@ -6,7 +6,7 @@ from airflow  import DAG
 from airflow.operators.python import PythonOperator
 
 
-API = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
+API = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
 
 # TODO extract
 def extract_bitcoin():
