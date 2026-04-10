@@ -22,7 +22,7 @@ def process_bitcoin(ti):
 
 # TODO store
 def store_bitcoin(ti):
-    data = ti.xcom_pull(task_ids="process_bitcoin", key="processed_data" )
+    data = ti.xcom_pull(task_ids="processed_data", key="processed_data" )
     logging.info(data)
 
 with DAG (
